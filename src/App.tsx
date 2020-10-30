@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Input } from "antd";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [file, setFile] = React.useState("");
+    React.useEffect(() => {
+        chrome.storage.local.get((obj) => setFile(obj.path || ""));
+    }, []);
+    const setFilePath = (path: string) => {
+        setFile(path);
+        chrome.storage.local.set({ path });
+    };
+    return (
+        <div className="App">
+            <div>
+                <Input
+                    placeholder="JS file path"
+                    value={file}
+                    onChange={(e) => setFilePath(e.target.value)}
+                />
+            </div>
+        </div>
+    );
 }
 
 export default App;
