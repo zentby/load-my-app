@@ -54,7 +54,7 @@ function App() {
                 <Row gutter={24}>
                     <Col span="12">
                         <Input.TextArea
-                            style={{ width : '80%' }}
+                            style={{ width: '80%' }}
                             rows={5}
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
@@ -63,7 +63,9 @@ function App() {
                 </Row>
                 <Row gutter={24}>
                     <Col span="12">
-                        <Button type="primary" onClick={onSave} block>Save</Button>
+                        <Button type="primary" onClick={onSave} block>
+                            Save
+                        </Button>
                     </Col>
                 </Row>
             </div>
