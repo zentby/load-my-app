@@ -1,5 +1,7 @@
 # Load My App
 
+A chrome extension that allow the user to inject any js file into current page's DOM. 
+
 ## Running in developer mode
 
 1. Run `yarn build` to build the artifacts to `build/`
